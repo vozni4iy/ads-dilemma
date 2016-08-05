@@ -1,0 +1,62 @@
+body {
+	background-image: url(../images/bg.jpg);
+	width: 60%;
+	padding-left: 20%;
+	color: #7fff00;
+}
+
+h1 {
+	text-align: center;
+	
+}
+section {
+    font-size: 1.5em;
+    
+}
+
+.rules {
+	margin-top: 1em;
+	font-size: 1.2em;
+}
+
+.button {
+	width: 300px;
+	heigth: 150px;
+	text-align: center;
+	color: #000000;
+	border-radius: 30px;
+	outline: none;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: #7fffd4;
+	cursor: pointer;
+}
+
+
+.messages {
+	text-align: center;
+	font-size: 1.5em;
+	margin-bottom: 2em;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-around;
+	font-size: 1.5em;
+}
+
+.btn-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+}
+
+#turnCounter {
+	text-align: center;
+	margin-top: 3em;
+	font-weight: bold;
+	font-size: 1.5em;
+}
