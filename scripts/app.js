@@ -89,10 +89,31 @@ var App = React.createClass({
 	var turnNumber = this.state.turnNumber;
 	var endGame = startGame && (turnNumber === 11);
 	
+	var introText = "The goal of the game is not to earn more money than computer," +
+	" but to test different advertisement strategies. It seems a good decision" +
+	"for a company to adopt big advertising budget and to earn more money " +
+	"than competitors. But it is a very bad decision for whole market. " +
+	"In this game you can test your strategy vs \"tit for tat\" computer strategy, " +
+	"which wins a lot of contests.";
+	
+	var rules = "The rules are simple. You need to choose big or small advertisement budget." +
+	"If you and your computer opponent choose small budgets, both of you earn 2000$." +
+	"If you choose small budget and your opponent choose big budget, you earn 500$ and your" +
+	"opponent earns 4000$. And vise versa, if you choose big budget and your opponent choose" +
+	"small budget, you earn 4000$ and your opponent earns 500$. If both of you choose big budgets," +
+	"you and computer earn 1000$. The game lasts 10 turns.";
+	
+	var header = <h1>Ads dilemma (John Nash Game Theory)</h1>;
+	
 	if (!startGame) {
-		var letsPlay = <button className = 'button btn-center' onClick={this.onStart}>
-		  <h2>Let's Play</h2>
-		</button>;
+		var letsPlay = 
+		<div>
+		  <section>{introText}</section>
+		  <section className = 'rules'>{rules}</section>
+		  <button className = 'button btn-center' onClick={this.onStart}>
+		    <h2>Let's Play</h2>
+		  </button>
+		</div>  
 	} else if (startGame && !endGame)	{ 
 	  var turnCounter = <div id='turnCounter'> {'Current turn: ' + this.state.turnNumber} </div>;	
 	  var yourMoney = <div> {'You earn: ' + this.state.yourMoney + '$'} </div>;
@@ -114,20 +135,24 @@ var App = React.createClass({
 	}
 	
     return (
-      <div>
-	    {letsPlay}
-		{turnCounter}
-		<div className = 'messages'>
-		  {yourMoney}
-		  {compMoney}
-		  {messageBox}
-		</div>  
-		<div className = 'buttons'>
-		  {bigButton}
-		  {smallButton}
-		</div>
-		{results}
-		{finish}
+	  <div className = 'content'>
+        <div className = 'container'>
+	      {header}
+	      {letsPlay}
+		  {turnCounter}
+		  <div className = 'messages'>
+		    {yourMoney}
+		    {compMoney}
+		    {messageBox}
+		  </div>  
+		  <div className = 'buttons'>
+		    {bigButton}
+		    {smallButton}
+		  </div>
+		  {results}
+		  {finish}
+	    </div>
+		<div className='copyright'>@Igor Skakun, 2016</div>
 	  </div>
     );
   }
